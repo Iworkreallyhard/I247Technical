@@ -9,47 +9,15 @@
 
 @if (RandomUsers.Count == 0)
 
-
-
-
-
-
-
 {
     <p><em>Loading...</em></p>
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 else
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {
+    <button class="refresh-names">Refresh</button>
     <table class="table">
         <thead>
             <tr>
@@ -65,20 +33,6 @@ else
         <tbody>
             @foreach (var randomUser in RandomUsers)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             {
                 <tr>
                     <td>@randomUser.Title</td>
@@ -88,11 +42,17 @@ else
                     <td>@randomUser.Country</td>
                     <td>@randomUser.Latitude</td>
                     <td>@randomUser.Longitude</td>
-                    @* Country
-            - Latitude
-            - Longitude *@
+
                 </tr>
             }
         </tbody>
     </table>
 }
+
+<script>
+
+    document.querySelector('.refresh-names').addEventListener('click', function () {
+        console.log('button pressed')
+        location.reload()
+    })
+</script>
